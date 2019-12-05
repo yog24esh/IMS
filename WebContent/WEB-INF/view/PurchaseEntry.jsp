@@ -42,11 +42,5 @@
     </span>
   </div>
 </nav>
-<br><br>
-<center>
-<h1>WELCOME TO IMS</h1>
-</center>
-	
-	
 </body>
 </html>
