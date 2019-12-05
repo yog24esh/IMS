@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,5 +45,29 @@
     </span>
   </div>
 </nav>
+<center>
+	<h1>MaterialsPurchaseEntry</h1>
+	<form:form modelAttribute="purchaseEntryBean" method="POST"
+			action="${pageContext.request.contextPath}/PurchaseEntry.html">
+		<table>
+			<tr>
+				<td>Vendor Name</td>
+				<td>
+					<form:select path="vendorName">
+						<form:option label="---SELECT---" value=""></form:option>
+						<form:options items="${VendorNamesList}"/>
+					</form:select>
+				</td>
+			</tr>
+		<%-- 	<tr>
+				<form:select path="" >
+						<form:option label="---SELECT---" value=""></form:option>
+						<form:options items="${MaterialCategoryList}"/>
+					</form:select>
+			</tr> --%>
+			
+		</table>
+	</form:form>
+</center>
 </body>
 </html>

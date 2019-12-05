@@ -118,9 +118,6 @@ span.psw {
 			action="${pageContext.request.contextPath}/validatelogin.html">
 
 			<br>
-
-		
-			
 				<div class="container">
     <label for="uname"><b>Username</b></label>
 					<form:input path="userName" />
@@ -128,10 +125,11 @@ span.psw {
 				
 					  <label for="psw"><b>Password</b></label>
 					<form:input path="password" />
-				
+				</div>	
 				
 			<button type="submit" value="logIn" >Login</button>
 			<!-- <input type="submit" value="logIn" /> -->
 			</form:form>
+			
 </body>
 </html>

@@ -36,6 +36,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="${pageContext.request.contextPath}//loadPurchaseEntryPage.html">PurchaseEntry</a>
+      </li>
     </ul>
     <span class="navbar-text">
     <a class="nav-link" href="#">Login</a>

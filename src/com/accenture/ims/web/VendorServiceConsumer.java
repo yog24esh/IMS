@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class VendorServiceConsumer {
 	
-	public static final String REST_SERVICE_URL = "http://localhost:8087/project";
+	public static final String REST_SERVICE_URL = "http://localhost:8088";
 
 	public static List<String> listVendorName() throws Exception {
 		RestTemplate restTemplate = new RestTemplate();
