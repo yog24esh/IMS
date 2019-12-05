@@ -38,7 +38,7 @@
       </li> -->
     </ul>
     <span class="navbar-text">
-    <a class="nav-link" href="#">Login</a>
+    <a class="nav-link" href="${pageContext.request.contextPath}/loadlogin.html">Login</a>
     </span>
   </div>
 </nav>
