@@ -19,8 +19,7 @@
 </style>
 </head>
 <body>
-	
-	<h2>Inventory Management System &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+<h2>Inventory Management System &nbsp;&nbsp;&nbsp;&nbsp;</h2>
 <nav class="heightOfHeader navbar navbar-expand-lg navbar-light bg-warning" text-color="white">
 <!--   <a class="navbar-brand" href="#">IMS</a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
