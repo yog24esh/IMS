@@ -29,22 +29,25 @@ form {
 }
 
 input[type=text], input[type=password] {
-	width: 100%;
+	width: 30%;
 	padding: 12px 20px;
-	margin: 8px 0;
+	margin: -18px 35%;
 	display: inline-block;
 	border: 1px solid #ccc;
 	box-sizing: border-box;
+	border-radius: 25px;
 }
 
 button {
 	background-color: #ffc107;
 	color: white;
 	padding: 14px 20px;
-	margin: 8px 0;
+ 	margin: 3% 25% ; 
 	border: none;
+	border-radius :25px;
 	cursor: pointer;
-	width: 100%;
+	width: 15%;
+	
 }
 
 button:hover {
@@ -119,15 +122,15 @@ span.psw {
 
 			<br>
 				<div class="container">
-    <label for="uname"><b>Username</b></label>
-					<form:input path="userName" />
+   <center> <label for="uname"><b>Username</b></label></center>
+				<br>	<form:input path="userName" />
 				
-				
-					  <label for="psw"><b>Password</b></label>
-					<form:input path="password" />
+				<br>
+					<center>  <br><label for="psw"><b>Password</b></label> </center>
+					<br><form:input path="password" />
 				</div>	
 				
-			<button type="submit" value="logIn" >Login</button>
+		<center>	<button type="submit" value="logIn" >Login</button> </center>
 			<!-- <input type="submit" value="logIn" /> -->
 			</form:form>
 			

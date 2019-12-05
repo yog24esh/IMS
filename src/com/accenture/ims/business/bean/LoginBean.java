@@ -1,6 +1,10 @@
 package com.accenture.ims.business.bean;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class LoginBean {
+	@Size(min=2,max=30, message="enter valid Id")
 	String userName;
 	String password;
 	public String getUserName() {

@@ -33,7 +33,7 @@ public class LoginController {
 	public ModelAndView validatelogin(@Valid @ModelAttribute("login") LoginBean loginBean,
 			BindingResult bindingResult) {
 		ModelAndView mv = new ModelAndView();
-
+		System.out.println(bindingResult);
 		if (loginService.validateLogin(loginBean.getUserName())) {
 			mv.setViewName("Dashboard");
 			mv.addObject("login", new LoginBean());
