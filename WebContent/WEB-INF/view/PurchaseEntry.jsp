@@ -20,6 +20,16 @@
 		color:white;
 	}
 </style>
+
+<script>
+function getmattypeAndUnit(customerId) {
+  //task1
+  //write code here and chk ctrl getting invoked or not
+  document.forms["form1"].action="getMaterialTypeAndUnit.html";
+  document.forms["form1"].method="post";
+  document.forms["form1"].submit();
+}
+</script>
 </head>
 <body>
 <h2>Inventory Management System &nbsp;&nbsp;&nbsp;&nbsp;</h2>
@@ -47,27 +57,82 @@
 </nav>
 <center>
 	<h1>MaterialsPurchaseEntry</h1>
-	<form:form modelAttribute="purchaseEntryBean" method="POST"
-			action="${pageContext.request.contextPath}/PurchaseEntry.html">
+	<form:form name="form1" modelAttribute="purchaseEntryBean" method="POST">
 		<table>
 			<tr>
 				<td>Vendor Name</td>
-				<td>
+				<td width="150px">
 					<form:select path="vendorName">
 						<form:option label="---SELECT---" value=""></form:option>
 						<form:options items="${VendorNamesList}"/>
 					</form:select>
 				</td>
 			</tr>
-		<%-- 	<tr>
-				<form:select path="" >
-						<form:option label="---SELECT---" value=""></form:option>
-						<form:options items="${MaterialCategoryList}"/>
+			<tr>
+				<td>Material Category</td>
+				<td width="150px">
+					<form:select id="customerId" onchange="getmattypeAndUnit(customerId.value)" path="materialCategoryId">
+						<form:option label="---SELECT---" value="" ></form:option>
+						<form:options items="${MaterialCategoryIdAndName}" />
 					</form:select>
-			</tr> --%>
-			
+				</td>
+			</tr>
 		</table>
 	</form:form>
+	<c:if test="${purchaseEntryBean.materialCategoryId!=null}">
+	<form:form name="form2" modelAttribute="purchaseEntryBean" method="POST" action="addPurchaseEntry.html">
+		<table>
+			<tr>
+				<td>Material Type</td>
+				<td width="150px">
+					<form:select path="materialTypeId">
+						<form:option label="---SELECT---" value="" ></form:option>
+						<form:options items="${materialTypeNameAndId}" />
+					</form:select>
+				</td>
+			</tr>
+			<tr>
+				<td>Brand Name</td>
+				<td width="150px">
+					<form:input path="brandName"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Unit</td>
+				<td width="150px">
+					<form:select path="unitId">
+						<form:option label="---SELECT---" value="" ></form:option>
+						<form:options items="${materialUnitNameAndId}" />
+					</form:select>
+				</td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td width="150px">
+					<form:input path="quantity"/>
+				</td>
+			</tr>
+				<tr>
+				<td>Purchase Amount</td>
+				<td width="150px">
+					<form:input path="purchaseAmount"/>
+				</td>
+			</tr>
+			</tr>
+				<tr>
+				<td>Purchase Date</td>
+				<td width="150px">
+					<form:input path="purchaseDate"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="Submit">
+				</td>
+			</tr>
+		</table>
+	</form:form>
+	</c:if>
 </center>
 </body>
 </html>

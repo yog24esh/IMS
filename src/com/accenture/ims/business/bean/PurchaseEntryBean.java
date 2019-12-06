@@ -3,11 +3,12 @@ package com.accenture.ims.business.bean;
 import java.util.Date;
 
 public class PurchaseEntryBean {
+
 	private Integer purchaseId;
 	private String transactionId;
 	private String vendorName;
-	private String materialCategory;
-	private String materialType;
+	private String materialCategoryId;			
+	private String materialTypeId;
 	private String brandName;
 	private String unitId;
 	private Integer quantity;
@@ -32,17 +33,17 @@ public class PurchaseEntryBean {
 	public void setVendorName(String vendorName) {
 		this.vendorName = vendorName;
 	}
-	public String getMaterialCategory() {
-		return materialCategory;
+	public String getMaterialCategoryId() {
+		return materialCategoryId;
 	}
-	public void setMaterialCategory(String materialCategory) {
-		this.materialCategory = materialCategory;
+	public void setMaterialCategoryId(String materialCategoryId) {
+		this.materialCategoryId = materialCategoryId;
 	}
-	public String getMaterialType() {
-		return materialType;
+	public String getMaterialTypeId() {
+		return materialTypeId;
 	}
-	public void setMaterialType(String materialType) {
-		this.materialType = materialType;
+	public void setMaterialTypeId(String materialTypeId) {
+		this.materialTypeId = materialTypeId;
 	}
 	public String getBrandName() {
 		return brandName;
@@ -80,5 +81,13 @@ public class PurchaseEntryBean {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	@Override
+	public String toString() {
+		return "PurchaseEntryBean [purchaseId=" + purchaseId + ", transactionId=" + transactionId + ", vendorName="
+				+ vendorName + ", materialCategoryId=" + materialCategoryId + ", materialTypeId=" + materialTypeId
+				+ ", brandName=" + brandName + ", unitId=" + unitId + ", quantity=" + quantity + ", purchaseAmount="
+				+ purchaseAmount + ", purchaseDate=" + purchaseDate + ", status=" + status + "]";
+	}
+	
 	
 }

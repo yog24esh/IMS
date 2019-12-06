@@ -71,10 +71,10 @@
 				<td>${purchaseEntryBean.vendorName}</td>
 			</tr>
 			<td>Material Category</td>
-			<td>${ purchaseEntryBean.materialCategory}</td>
+			<td>${ purchaseEntryBean.materialCategoryId}</td>
 			<tr>
 				<td>Material Type</td>
-				<td>${purchaseEntryBean.materialType }</td>
+				<td>${purchaseEntryBean.materialTypeId}</td>
 			</tr>
 
 			<tr>
@@ -103,10 +103,6 @@
 				<td>${purchaseEntryBean.status}</td>
 			</tr>
 		</table>
-
-
-
-
 	</center>
 
 </body>

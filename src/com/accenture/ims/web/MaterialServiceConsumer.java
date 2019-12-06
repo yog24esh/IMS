@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MaterialServiceConsumer {
  
-	public static final String REST_SERVICE_URL = "http://localhost:8088/material/controller";
+	public static final String REST_SERVICE_URL = "http://localhost:8085/material/controller";
 
 	// Returning MaterialType in the form of Map (typeId,materialType)
 	// ----------------------------------------------------------------------------------------------
