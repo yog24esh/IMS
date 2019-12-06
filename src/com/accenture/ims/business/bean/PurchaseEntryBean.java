@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class PurchaseEntryBean {
 
@@ -23,10 +22,12 @@ public class PurchaseEntryBean {
 	@NotEmpty(message = "Please Enter the Brand Name")
 	private String brandName;
 
+
 	@NotEmpty(message = " Please select the Unit")
 	private String unitId;
 
-	@Range(min = 0l, message = "Please Enter only positive numbers  for Quantity")
+	@NotNull(message="Please enter the Quantity")
+	@Range(min = 1, message = "Please Enter only positive numbers  for Quantity")
 	private Integer quantity;
 
 	@Digits(integer = 20, fraction = 2, message = " Please enter only numbers with two decimal places for purchase Amount")
