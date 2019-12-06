@@ -25,9 +25,14 @@
 function getmattypeAndUnit(customerId) {
   //task1
   //write code here and chk ctrl getting invoked or not
-  document.forms["form1"].action="getMaterialTypeAndUnit.html";
-  document.forms["form1"].method="post";
-  document.forms["form1"].submit();
+  if(customerId==""){
+	  alert("Material Category cant be empty");
+  }else{
+	  document.forms["form1"].action="getMaterialTypeAndUnit.html";
+	  document.forms["form1"].method="post";
+	  document.forms["form1"].submit();
+  }
+
 }
 </script>
 </head>
