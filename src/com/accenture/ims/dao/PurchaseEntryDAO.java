@@ -5,9 +5,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.accenture.ims.entity.PurchaseEntryEntity;
 
-@RepositoryDefinition(idClass=Integer.class,domainClass=PurchaseEntryEntity.class)
+@RepositoryDefinition(idClass = Integer.class, domainClass = PurchaseEntryEntity.class)
 @Transactional("txManager")
-public interface PurchaseEntryDAO  {
-	
+public interface PurchaseEntryDAO {
+
 	PurchaseEntryEntity save(PurchaseEntryEntity purchsaeEntryEntity);
+
 }
