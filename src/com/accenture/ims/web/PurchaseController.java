@@ -1,14 +1,13 @@
 package com.accenture.ims.web;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.websocket.Session;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,8 +31,7 @@ public class PurchaseController {
 	
 	@ModelAttribute("VendorNamesList")
 	public List<String> populateVendorNames() throws Exception{
-		VendorServiceConsumer vendorConsumer = new VendorServiceConsumer();
-		List<String> vendorNameList = vendorConsumer.listVendorName();
+		List<String> vendorNameList = VendorServiceConsumer.listVendorName();
 		return vendorNameList;
 	}
 	
@@ -44,14 +42,10 @@ public class PurchaseController {
 		return materialCategoryIdAndName;
 	}
 	
-	//write one req handler
-	//
-	
 	@RequestMapping(value="/loadPurchaseEntryPage",method=RequestMethod.GET)
 	public ModelAndView loadPurchaseEntryPage() {
 		
 		ModelAndView modelAndView = new ModelAndView();
-		PurchaseEntryBean purchaseEntryBean = new PurchaseEntryBean();
 		modelAndView.setViewName("PurchaseEntry");
 	
 		return modelAndView;
@@ -70,11 +64,18 @@ public class PurchaseController {
 	}
 	
 	@RequestMapping(value="/addPurchaseEntry",method=RequestMethod.POST)
-	public ModelAndView addPurchaseEntry(@ModelAttribute("purchaseEntryBean")PurchaseEntryBean purchaseEntryBean) {
+	public ModelAndView addPurchaseEntry(@Valid @ModelAttribute("purchaseEntryBean")PurchaseEntryBean purchaseEntryBean,BindingResult bindingResult ) {
 		ModelAndView modelAndView = new ModelAndView();
-		System.out.println(purchaseEntryBean);
-		modelAndView.addObject("PurchaseEntryBEan",purchaseEntryBean);
-		modelAndView.setViewName("PurchaseEntrySuccess");
-		return modelAndView;
+		
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("PurchaseEntry");
+			return modelAndView;
+		}else {
+			PurchaseEntryBean beanWithTransactionId = service.save(purchaseEntryBean);
+			modelAndView.addObject("purchaseEntryBeanWithTransactionId",beanWithTransactionId);
+			modelAndView.setViewName("PurchaseEntrySuccess");
+			return modelAndView;
+		}
+		
 	}
 }

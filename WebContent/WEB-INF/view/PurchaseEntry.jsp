@@ -145,7 +145,6 @@ function getmattypeAndUnit(customerId) {
 				<td>Purchase Date</td>
 				<td width="150px">
 					<form:input path="purchaseDate"/>
-					<form:errors path="purchaseDate" cssClass="error"></form:errors>
 				</td>
 			</tr>
 			<tr>

@@ -58,49 +58,49 @@
 	<center>
 		<h4>Purchase Entry Created</h4>
 		<br>
-		<h6>TRANSACTION ID:${purchaseEntryBean.transactionId}</h6>
+		<h6>TRANSACTION ID:${purchaseEntryBeanWithTransactionId.transactionId}</h6>
 		<br>
 		<table>
 			<tr>
 				<td>Purchase Id</td>
-				<td>${purchaseEntryBean.purchaseId}</td>
+				<td>${purchaseEntryBeanWithTransactionId.purchaseId}</td>
 			</tr>
 
 			<tr>
 				<td>Vendor Name</td>
-				<td>${purchaseEntryBean.vendorName}</td>
+				<td>${purchaseEntryBeanWithTransactionId.vendorName}</td>
 			</tr>
 			<td>Material Category</td>
-			<td>${ purchaseEntryBean.materialCategoryId}</td>
+			<td>${ purchaseEntryBeanWithTransactionId.materialCategoryId}</td>
 			<tr>
 				<td>Material Type</td>
-				<td>${purchaseEntryBean.materialTypeId}</td>
+				<td>${purchaseEntryBeanWithTransactionId.materialTypeId}</td>
 			</tr>
 
 			<tr>
 				<td>Unit</td>
-				<td>${ purchaseEntryBean.unitId}</td>
+				<td>${ purchaseEntryBeanWithTransactionId.unitId}</td>
 			</tr>
 
 			<tr>
 				<td>Quantity</td>
-				<td>${purchaseEntryBean.quantity}</td>
+				<td>${purchaseEntryBeanWithTransactionId.quantity}</td>
 			</tr>
 
 
 			<tr>
 				<td>Purchase Amount</td>
-				<td>${purchaseEntryBean.purchaseAmount}</td>
+				<td>${purchaseEntryBeanWithTransactionId.purchaseAmount}</td>
 			</tr>
 
 			<tr>
 				<td>Purchase Date</td>
-				<td>${purchaseEntryBean.purchaseDate}</td>
+				<td>${purchaseEntryBeanWithTransactionId.purchaseDate}</td>
 			</tr>
 
 			<tr>
 				<td>Status</td>
-				<td>${purchaseEntryBean.status}</td>
+				<td>${purchaseEntryBeanWithTransactionId.status}</td>
 			</tr>
 		</table>
 	</center>
