@@ -17,18 +17,8 @@ public class LoginServiceImpl implements LoginService {
 	 * @see com.accenture.lkm.service.LoginService#validateLogin(java.lang.String)
 	 */
 	@Override
-	public boolean validateLogin(String id) {
+	public boolean validateLogin(LoginBean loginBean) {
 
-		LoginBean loginBean = new LoginBean();
-		loginBean = loginDAOWrapper.getLoginDetails(id);
-
-		if (loginBean.getUserName() != null) {
-			return true;
-		}
-
-		else {
-
-			return false;
-		}
+		return loginDAOWrapper.validateLoginDetails(loginBean);
 	}
 }

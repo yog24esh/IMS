@@ -42,5 +42,8 @@
     </span>
   </div>
 </nav>
+<center><h4>Purchase Entry Created</h4>
+</center>
+
 </body>
 </html>

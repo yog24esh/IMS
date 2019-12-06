@@ -1,8 +1,5 @@
 package com.accenture.ims.dao;
 
-import java.util.List;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,14 +13,15 @@ public class LoginDAOWrapper {
 	@Autowired
 	private LoginDAO loginDAO;
 
-	public LoginBean getLoginDetails(String id) {
-		LoginBean loginBean = new LoginBean();
-
-		LoginEntity loginEntity = loginDAO.findOne(id);
-		if (loginEntity != null)
-			BeanUtils.copyProperties(loginEntity, loginBean);
-		return loginBean;
-
+	public boolean validateLoginDetails(LoginBean loginBean) {
+		Boolean validationResult = false;
+		LoginEntity loginEntity = loginDAO.findOne(loginBean.getUserName());
+		if (loginEntity != null) {
+			if (loginBean.getPassword().equals(loginEntity.getPassword())) {
+				validationResult = true;
+			}
+		}
+		return validationResult;
 	}
 
 }

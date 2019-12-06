@@ -33,15 +33,20 @@ public class LoginController {
 	public ModelAndView validatelogin(@Valid @ModelAttribute("login") LoginBean loginBean,
 			BindingResult bindingResult) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(bindingResult);
-		if (loginService.validateLogin(loginBean.getUserName())) {
-			mv.setViewName("Dashboard");
-			mv.addObject("login", new LoginBean());
-			return mv;
-		} else {
+		if (bindingResult.hasErrors()) {
 			mv.setViewName("Login");
-			mv.addObject("login", new LoginBean());
 			return mv;
+
+		} else {
+			if (loginService.validateLogin(loginBean)) {
+				mv.setViewName("Dashboard");
+				mv.addObject("login", new LoginBean());
+				return mv;
+			} else {
+				mv.setViewName("Login");
+				mv.addObject("login", new LoginBean());
+				return mv;
+			}
 		}
 	}
 
