@@ -3,12 +3,14 @@ package com.accenture.ims.business.bean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class LoginBean {
 
 	@Size(min = 2, max = 30, message = "Enter Valid Username")
 	String userName;
 
-	@NotNull(message = "Password Cannot Be Null")
+	@NotEmpty(message = "Password Cannot Be Null")
 	String password;
 
 	public String getUserName() {

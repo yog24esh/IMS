@@ -2,17 +2,44 @@ package com.accenture.ims.business.bean;
 
 import java.util.Date;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class PurchaseEntryBean {
+
 
 	private Integer purchaseId;
 	private String transactionId;
+	
+	@NotEmpty(message=" Please select the vendor ")
 	private String vendorName;
-	private String materialCategoryId;			
+	
+	@NotEmpty(message=" Please select the MaterialCategory ")
+	private String materialCategoryId;	
+	
+	@NotEmpty(message=" Please select the MaterialType ")
 	private String materialTypeId;
+	
+	@NotEmpty(message="Please Enter the Brand Name")
 	private String brandName;
+	
+	@NotEmpty(message=" Please select the Unit")
 	private String unitId;
+	
+	
+	@Range(min = 0l, message = "Please Enter only positive numbers  for Quantity")
 	private Integer quantity;
+	
+	
+	@Digits(integer = 20,fraction=2,message=" Please enter only numbers with two decimal places for purchase Amount" )
 	private Double purchaseAmount;
+	
+	@NotNull(message="please Select the Purchase date")
+	@NotEmpty(message="please Select the Purchase date")
 	private Date purchaseDate;
 	private String status;
 	public Integer getPurchaseId() {

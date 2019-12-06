@@ -153,7 +153,7 @@ span.psw {
 			</center>
 			<br>
 			<form:input path="password" />
-			<form:errors path="password" cssClass="error">This is from Login.jsp</form:errors>
+			<form:errors path="password" cssClass="error"></form:errors>
 		</div>
 
 		<center>

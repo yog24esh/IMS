@@ -12,13 +12,19 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<style>
+<style type="text/css">
 	.heightOfHeader{
 		height:40px;
 	}
 	.navbar-link{
 		color:white;
 	}
+	
+	.error{
+	color:red;
+		
+	}
+	
 </style>
 
 <script>
@@ -35,6 +41,9 @@ function getmattypeAndUnit(customerId) {
 
 }
 </script>
+
+
+	
 </head>
 <body>
 <h2>Inventory Management System &nbsp;&nbsp;&nbsp;&nbsp;</h2>
@@ -70,6 +79,7 @@ function getmattypeAndUnit(customerId) {
 					<form:select path="vendorName">
 						<form:option label="---SELECT---" value=""></form:option>
 						<form:options items="${VendorNamesList}"/>
+						<form:errors path="vendorName" cssClass="error"></form:errors>
 					</form:select>
 				</td>
 			</tr>
@@ -79,6 +89,7 @@ function getmattypeAndUnit(customerId) {
 					<form:select id="customerId" onchange="getmattypeAndUnit(customerId.value)" path="materialCategoryId">
 						<form:option label="---SELECT---" value="" ></form:option>
 						<form:options items="${MaterialCategoryIdAndName}" />
+						<form:errors path="materialCategoryId" cssClass="error"></form:errors>
 					</form:select>
 				</td>
 			</tr>
@@ -93,6 +104,7 @@ function getmattypeAndUnit(customerId) {
 					<form:select path="materialTypeId">
 						<form:option label="---SELECT---" value="" ></form:option>
 						<form:options items="${materialTypeNameAndId}" />
+						<form:errors path="materialTypeId" cssClass="error"></form:errors>
 					</form:select>
 				</td>
 			</tr>
@@ -100,6 +112,7 @@ function getmattypeAndUnit(customerId) {
 				<td>Brand Name</td>
 				<td width="150px">
 					<form:input path="brandName"/>
+					<form:errors path="brandName" cssClass="error"></form:errors>
 				</td>
 			</tr>
 			<tr>
@@ -108,6 +121,7 @@ function getmattypeAndUnit(customerId) {
 					<form:select path="unitId">
 						<form:option label="---SELECT---" value="" ></form:option>
 						<form:options items="${materialUnitNameAndId}" />
+						<form:errors path="unitId" cssClass="error"></form:errors>
 					</form:select>
 				</td>
 			</tr>
@@ -115,19 +129,23 @@ function getmattypeAndUnit(customerId) {
 				<td>Quantity</td>
 				<td width="150px">
 					<form:input path="quantity"/>
+					<form:errors path="quantity" cssClass="error"></form:errors>
+					
 				</td>
 			</tr>
 				<tr>
 				<td>Purchase Amount</td>
 				<td width="150px">
 					<form:input path="purchaseAmount"/>
+					<form:errors path="purchaseAmount" cssClass="error"></form:errors>
 				</td>
 			</tr>
-			</tr>
+			
 				<tr>
 				<td>Purchase Date</td>
 				<td width="150px">
 					<form:input path="purchaseDate"/>
+					<form:errors path="purchaseDate" cssClass="error"></form:errors>
 				</td>
 			</tr>
 			<tr>
