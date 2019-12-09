@@ -50,6 +50,15 @@
 .navbar-link {
 	color: white;
 }
+
+.error {
+	color: red;
+	margin-left: 0%;
+}
+.sb{
+	margin-left:51%;
+}
+
 </style>
 
 
@@ -90,16 +99,18 @@
 			<table>
 				<tr>
 					<td>From Date:</td>
-					<td><form:input id="datepicker" path="fromDate" /></td>
+					<td><form:input id="datepicker" path="fromDate" /> </td>
+					<td><form:errors path="fromDate" cssClass="error" /></td>
 				</tr>
+
 
 				<tr>
 					<td>To Date:</td>
-					<td><form:input id="datepicker2" path="toDate" /></td>
+					<td><form:input id="datepicker2" path="toDate"/></td>
+					 <td><form:errors path="toDate" cssClass="error"/></td>
 				</tr>
-
 				<tr>
-					<td colspan="2"><input type="submit" value="submit" /></td>
+					<td colspan="2"><input type="submit" value="submit" class="sb"/></td>
 				</tr>
 			</table>
 		</form:form>

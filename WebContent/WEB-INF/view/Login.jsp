@@ -34,7 +34,7 @@
 
 .error {
 	color: red;
-	margin-left: 68%;
+	
 }
 
 body {
