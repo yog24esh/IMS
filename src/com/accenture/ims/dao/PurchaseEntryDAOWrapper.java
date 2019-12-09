@@ -1,5 +1,6 @@
 package com.accenture.ims.dao;
 
+import java.sql.Date;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
@@ -25,9 +26,7 @@ public class PurchaseEntryDAOWrapper {
 	EntityManager entityManager;
 
 	public PurchaseEntryBean save(PurchaseEntryBean purchsaeEntryBean) {
-		
-		
-		
+
 		MaterialServiceConsumer materialServiceConsumer = new MaterialServiceConsumer();
 		Map<String, String> materialCategoryMap = materialServiceConsumer.getMaterialCategories();
 
@@ -35,38 +34,23 @@ public class PurchaseEntryDAOWrapper {
 
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append("P_" + purchsaeEntryBean.getVendorName().substring(0, 3) + "_"
-				+ purchsaeEntryBean.getPurchaseDate() + "_" + materialCategoryName.substring(0, 3) + "_");
+				+ purchsaeEntryBean.getPurchaseDate().getDate() + (purchsaeEntryBean.getPurchaseDate().getMonth() + 1)
+				+ (purchsaeEntryBean.getPurchaseDate().getYear() + 1900) + "_" + materialCategoryName.substring(0, 3)
+				+ "_");
 
 		purchsaeEntryBean.setTransactionId(stringBuffer.toString());
-		
+
 		PurchaseEntryEntity purchaseEntryEntity = new PurchaseEntryEntity();
 		BeanUtils.copyProperties(purchsaeEntryBean, purchaseEntryEntity);
 
-		PurchaseEntryEntity savedPurchaseEntryEntity = entityManager
-				.merge(purchaseEntryEntity);/* purchaseEntryDAO.save(purchaseEntryEntity); */
+		PurchaseEntryEntity savedPurchaseEntryEntity = entityManager.merge(purchaseEntryEntity);
 
-		/*
-		 * MaterialServiceConsumer materialServiceConsumer = new
-		 * MaterialServiceConsumer(); Map<String, String> materialCategoryMap =
-		 * materialServiceConsumer.getMaterialCategories();
-		 * 
-		 * String materialCategoryName =
-		 * materialCategoryMap.get(savedPurchaseEntryEntity.getMaterialCategoryId());
-		 */
-		/*
-		 * StringBuffer stringBuffer = new StringBuffer(20); stringBuffer.append("P_" +
-		 * savedPurchaseEntryEntity.getVendorName().substring(0, 3) + "_" +
-		 * savedPurchaseEntryEntity.getPurchaseDate() + "_" + materialCategoryName + "_"
-		 * + savedPurchaseEntryEntity.getPurchaseId());
-		 * 
-		 * savedPurchaseEntryEntity.setTransactionId(stringBuffer.toString());
-		 */
 		stringBuffer.append(savedPurchaseEntryEntity.getPurchaseId());
 		savedPurchaseEntryEntity.setTransactionId(stringBuffer.toString());
 		PurchaseEntryEntity purchaseEntryEntityWithTransactionId = entityManager.merge(savedPurchaseEntryEntity);
 		PurchaseEntryBean purchaseEntryBeanWithTransactionId = new PurchaseEntryBean();
 		BeanUtils.copyProperties(purchaseEntryEntityWithTransactionId, purchaseEntryBeanWithTransactionId);
-		
+
 		return purchaseEntryBeanWithTransactionId;
 
 	}
