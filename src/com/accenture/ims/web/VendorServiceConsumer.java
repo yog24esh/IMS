@@ -11,13 +11,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class VendorServiceConsumer {
 	
-	public static final String REST_SERVICE_URL = "http://localhost:8088";
+	//public static final String REST_SERVICE_URL = "http://localhost:8088";
+	
+	
+	public static final String REST_SERVICE_URL="http://javastreamims.devops.vendorservice.ci.18.203.244.244.xip.io/project/vendor/controller/getVendors";
 
 	public static List<String> listVendorName() throws Exception {
 		RestTemplate restTemplate = new RestTemplate();
 
 		List<LinkedHashMap<String, Object>> vendorListJSON = restTemplate
-				.getForObject(REST_SERVICE_URL + "/vendor/controller/getVendors", List.class);
+				.getForObject(REST_SERVICE_URL , List.class);
 
 		ObjectMapper mapper = new ObjectMapper();
 

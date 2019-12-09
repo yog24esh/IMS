@@ -21,7 +21,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
-	
+
 <style>
 .heightOfHeader {
 	height: 40px;
@@ -45,7 +45,7 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarText">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="/IMS">Home<span
+			<li class="nav-item active"><a class="nav-link" href="/IMS">HOME<span
 					class="sr-only">(current)</span></a></li>
 			<!-- <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
@@ -53,9 +53,16 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li> -->
+			<li class="nav-item"><a class="nav-link"
+				href="${pageContext.request.contextPath}//loadPurchaseEntryPage.html">PURCHASE
+					ENTRY</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="${pageContext.request.contextPath}/getDateRangeBean.html">GET
+					DETAILS BY DATE</a></li>
 		</ul>
 		<a class="nav-link"
-			href="${pageContext.request.contextPath}/logout.html">Logout</a> </span>
+			href="${pageContext.request.contextPath}/logout.html">LOGOUT</a> </span>
 	</div>
 	</nav>
 	<center>

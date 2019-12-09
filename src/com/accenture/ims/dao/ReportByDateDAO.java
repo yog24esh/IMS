@@ -11,10 +11,9 @@ import com.accenture.ims.entity.PurchaseEntryEntity;
 
 @RepositoryDefinition(idClass = Integer.class, domainClass = PurchaseEntryEntity.class)
 @Transactional("txManager")
-public interface PurchaseEntryDAO {
+public interface ReportByDateDAO {
+		@Query("select k from PurchaseEntryEntity k where k.purchaseDate between ?1 and ?2")
+		List<PurchaseEntryEntity> getDetailsByDate(Date fromDate,Date toDate);
+	}
 
-	PurchaseEntryEntity save(PurchaseEntryEntity purchsaeEntryEntity);
-  
-	@Query("select k from PurchaseEntryEntity k where k.purchaseDate between ?1 and ?2")
-	List<PurchaseEntryEntity> getDetailsByDate(Date fromDate,Date toDate);
-}
+
