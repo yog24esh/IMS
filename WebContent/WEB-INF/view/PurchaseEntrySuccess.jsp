@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,6 +21,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
+	
 <style>
 .heightOfHeader {
 	height: 40px;
@@ -30,6 +32,7 @@
 }
 </style>
 </head>
+
 <body>
 	<h2>Inventory Management System &nbsp;&nbsp;&nbsp;&nbsp;</h2>
 	<nav
@@ -51,14 +54,15 @@
         <a class="nav-link" href="#">Pricing</a>
       </li> -->
 		</ul>
-		<span class="navbar-text"> <a class="nav-link" href="#">Login</a>
-		</span>
+		<a class="nav-link"
+			href="${pageContext.request.contextPath}/logout.html">Logout</a> </span>
 	</div>
 	</nav>
 	<center>
 		<h4>Purchase Entry Created</h4>
 		<br>
-		<h6>TRANSACTION ID:${purchaseEntryBeanWithTransactionId.transactionId}</h6>
+		<h6>TRANSACTION
+			ID:${purchaseEntryBeanWithTransactionId.transactionId}</h6>
 		<br>
 		<table>
 			<tr>
@@ -90,12 +94,16 @@
 
 			<tr>
 				<td>Purchase Amount</td>
-				<td>${purchaseEntryBeanWithTransactionId.purchaseAmount}</td>
+				<td><fmt:formatNumber
+						value="${purchaseEntryBeanWithTransactionId.purchaseAmount}"
+						type="currency" currencySymbol="INR. "></fmt:formatNumber>
 			</tr>
 
 			<tr>
 				<td>Purchase Date</td>
-				<td>${purchaseEntryBeanWithTransactionId.purchaseDate}</td>
+				<td><fmt:formatDate
+						value="${purchaseEntryBeanWithTransactionId.purchaseDate}"
+						type="Date" pattern="dd-MMM-yyyy" />
 			</tr>
 
 			<tr>

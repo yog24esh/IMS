@@ -41,7 +41,7 @@
       </li>
     </ul>
     <span class="navbar-text">
-    <a class="nav-link" href="#">Login</a>
+    <a class="nav-link" href="${pageContext.request.contextPath}/logout.html">Logout</a>
     </span>
   </div>
 </nav>

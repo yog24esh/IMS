@@ -1,7 +1,9 @@
 package com.accenture.ims.web;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -48,6 +50,16 @@ public class LoginController {
 				return mv;
 			}
 		}
+	}
+
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView logout(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		session.invalidate();
+		mv.setViewName("Login");
+		mv.addObject("login", new LoginBean());
+		return mv;
 	}
 
 }

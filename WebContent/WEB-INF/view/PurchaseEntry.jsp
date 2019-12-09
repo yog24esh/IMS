@@ -78,8 +78,7 @@ function getmattypeAndUnit(customerId) {
       </li> -->
     </ul>
     <span class="navbar-text">
-    <a class="nav-link" href="#">Login</a>
-    </span>
+<a class="nav-link" href="${pageContext.request.contextPath}/logout.html">Logout</a>    </span>
   </div>
 </nav>
 <center>
